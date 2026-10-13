@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f7f8fc">
+    <title>Offline R Practical Solver</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="topbar">
+        <div class="brand">
+            <div class="brand-icon">R</div>
+            <div>
+                <h1>R Practical Solver</h1>
+                <p>Offline practical question assistant</p>
+            </div>
+        </div>
+
+        <div class="offline-status">
+            <span class="status-dot"></span>
+            Offline Ready
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <span class="eyebrow">SWRP PRACTICALS</span>
+            <h2>Find your R program.</h2>
+            <p>
+                Enter a question from your practical syllabus.
+                Get the matching R code from your local question bank.
+            </p>
+        </section>
+
+        <section class="solver-card">
+            <div class="section-heading">
+                <div>
+                    <h3>Practical question</h3>
+                    <p>Use the wording from your question paper.</p>
+                </div>
+                <span class="local-tag">Local question bank</span>
+            </div>
+
+            <label for="module">Select module</label>
+            <select id="module">
+                <option value="all">All modules</option>
+                <option value="module1">Module 1</option>
+                <option value="module2">Module 2</option>
+            </select>
+
+            <label for="question">Enter your question</label>
+            <textarea id="question" rows="5"
+                placeholder="Example: Write an R program to demonstrate miscellaneous operators."
+                spellcheck="false"></textarea>
+
+            <div class="form-footer">
+                <span id="question-count">0 characters</span>
+                <button id="solve-btn" class="primary-btn" type="button">
+                    Find R Code
+                    <span aria-hidden="true">→</span>
+                </button>
+            </div>
+
+            <div class="examples">
+                <span class="examples-label">Try an example</span>
+                <button class="example-btn" type="button" data-module="module1"
+                    data-question="Write an R program to demonstrate the use of miscellaneous operators (:, %in%, %*%).">
+                    Miscellaneous operators
+                </button>
+                <button class="example-btn" type="button" data-module="module1"
+                    data-question="Create a vector from 1 to 5 and access elements using logical indexing.">
+                    Vector indexing
+                </button>
+                <button class="example-btn" type="button" data-module="module2"
+                    data-question="Create a pie chart for monthly expenses and find the cumulative distribution function of the normal distribution.">
+                    Pie chart and probability
+                </button>
+            </div>
+        </section>
+
+        <section id="result-section" class="result-card" aria-live="polite">
+            <div class="result-header">
+                <div>
+                    <span class="result-label">OUTPUT</span>
+                    <h3 id="result-title">Your R code will appear here</h3>
+                </div>
+
+                <div class="result-actions">
+                    <button id="copy-btn" class="secondary-btn" type="button" disabled>Copy Code</button>
+                    <button id="clear-btn" class="secondary-btn" type="button">
+                        Clear
+                    </button>
+                </div>
+            </div>
+
+            <div id="message" class="message" hidden></div>
+
+            <pre id="code-output"
+                class="code-output"><code id="code-content">Enter a practical question above to find its matching solution.</code></pre>
+
+            <div class="result-footer">
+                <span id="result-info">Waiting for a question</span>
+                <span>R language</span>
+            </div>
+        </section>
+
+        <aside class="notice">
+            <strong>Important</strong>
+            <p>
+                This tool only supports questions in the supplied SWRP
+                practical PDF. Unsupported questions will not receive
+                invented answers. Some programs require the college dataset
+                or an additional R package.
+            </p>
+        </aside>
+    </main>
+
+    <footer class="footer">
+        <p>Offline R Practical Solver · SWRP Question Bank</p>
+        <p>No API · No account · No internet required at runtime</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
